@@ -1,0 +1,1 @@
+# egyptian-car-plates-yolov11-easyocr
