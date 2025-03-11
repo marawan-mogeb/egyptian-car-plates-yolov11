@@ -31,7 +31,7 @@ pip install opencv-python torch torchvision easyocr numpy matplotlib
 
 ### Clone the Repository
 ```bash
-git clone <repository_url>
+git clone <https://github.com/marawan-mogeb/egyptian-car-plates-yolov11-easyocr.git>
 cd <project_directory>
 ```
 
@@ -64,10 +64,6 @@ If you need to train the model from scratch:
 2. Fine-tune YOLOv1 on the dataset.
 3. Evaluate and optimize performance.
 
-## Future Improvements
-- Enhance OCR accuracy for better recognition of Arabic characters.
-- Improve detection speed for real-time applications.
-- Expand dataset for better generalization.
 
 ## Contributors
 - **Marawan Mogeb Alrahman Fouad**
@@ -76,6 +72,4 @@ If you need to train the model from scratch:
 - **Ahmed Salah**
 - **Mohamed Hossam**
 
-## License
-This project is licensed under the MIT License.
 
