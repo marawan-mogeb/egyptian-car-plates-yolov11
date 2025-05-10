@@ -1,75 +1,66 @@
-# License Plate Recognition with Arabic Letters and Numbers
+# 🚗 Egyptian License Plate Recognition (Streamlit App)
 
-## Project Overview
-This project focuses on developing a system for **automatic license plate recognition (ALPR)** that supports **Arabic letters and numbers**. The system utilizes **YOLOv1 (fine-tuned)** for plate detection and **EasyOCR** for optical character recognition (OCR). The objective is to create a robust and efficient model capable of recognizing Egyptian license plates.
+A Streamlit-based web application for detecting and recognizing Egyptian vehicle license plates using YOLO models and custom OCR logic.
 
-## Features
-- **Automatic detection** of license plates in images and video frames.
-- **Recognition of Arabic letters and numbers** on Egyptian plates.
-- **Deep learning-based approach** using **YOLOv1** for detection.
-- **OCR processing** using **EasyOCR** for text extraction.
-- **Fine-tuned model** for improved accuracy on Egyptian plates.
+## 🔍 Features
 
-## Dataset
-The dataset used for training includes images of Egyptian license plates annotated with bounding boxes and corresponding text labels. The dataset is preprocessed and augmented to improve model generalization.
+- Upload or capture an image using a camera
+- Detect license plates in images using YOLO
+- Perform OCR to extract Arabic characters and numbers
+- Convert detected elements to Arabic format
+- Automatically classify the governorate based on plate structure
+- Bilingual interface: English and Arabic
+- Download processed results as images
+- python version >> 3.11
+## 🗂 Project Structure
 
-## Technologies Used
-- **YOLOv1** (You Only Look Once) for object detection
-- **EasyOCR** for character recognition
-- **Python** as the primary programming language
-- **OpenCV** for image processing
-- **TensorFlow/PyTorch** (if applicable for training YOLO)
-- **Jupyter Notebook** for experimentation
-
-## Installation
-### Prerequisites
-Ensure you have Python installed along with the required dependencies.
-
-```bash
-pip install opencv-python torch torchvision easyocr numpy matplotlib
+```
+project/
+│
+├── web/
+│   ├── web.py              ← Main Streamlit app
+│   ├── depiweb.py          ← Plate detection + OCR logic
+│   ├── best.pt             ← OCR model
+│   ├── plate.pt            ← License plate detector
+│   ├── yolo11n.pt          ← Optional general object detector
+│   └── requirements.txt    ← Dependencies
+│
+└── README.md
 ```
 
-### Clone the Repository
-```bash
-git clone <https://github.com/marawan-mogeb/egyptian-car-plates-yolov11-easyocr.git>
-cd <project_directory>
-```
+## 🚀 How to Run
 
-## Usage
-### Running the Model
-1. **Load the trained YOLO model** for license plate detection.
-2. **Pass an image or video frame** through the model.
-3. **Extract the license plate region** and apply OCR for text recognition.
+1. Open a terminal and navigate to the `web` folder:
 
-Example usage:
-```python
-import cv2
-import easyocr
+   ```bash
+   cd web
+   ```
 
-# Load image
-image = cv2.imread('car.jpg')
+2. Install dependencies:
 
-# Run YOLO model for plate detection (Assuming model is loaded)
-# Detect the plate and extract the region of interest (ROI)
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# Run OCR on the extracted plate
-reader = easyocr.Reader(['ar', 'en'])
-text = reader.readtext(roi, detail=0)
-print("Detected License Plate:", text)
-```
+3. Ensure the following model files are in the same folder:
+   - `best.pt`
+   - `plate.pt`
+   - `yolo11n.pt` (optional)
 
-## Model Training
-If you need to train the model from scratch:
-1. Prepare and annotate the dataset.
-2. Fine-tune YOLOv1 on the dataset.
-3. Evaluate and optimize performance.
+4. Start the app:
 
+   ```bash
+   python -m streamlit run web.py
+   ```
 
-## Contributors
-- **Marawan Mogeb Alrahman Fouad**
-- **Ahmed Mohamed Farrag**
-- **Ahmed Mohamed Abbas**
-- **Ahmed Salah**
-- **Mohamed Hossam**
+5. The web app will open in your browser.
 
+## 📝 Notes
 
+- Make sure your webcam permissions are allowed when using the "Use Camera" option.
+- The app supports both English and Arabic interface (selectable at the top).
+- Governorate classification is based on the recognized plate letters.
+
+## 📄 License
+
+MIT License.
